@@ -20,7 +20,7 @@ pattern mode: the drum's settings hold no play mode to read back; the default st
 
 ## Status
 
-**Built and checked on a computer; not yet tried on a unit.** Built with open-field's `tools/pack_build.py build3` against its main branch (base 32 era), checked with `pack_build.py check`, `stub_calls.py` and `publish_check.py` (no byte of the firmware in any file here).
+**Tried on a unit** (OS 1.7.3, base 32, with a full set of other packs, 2026-11-24): with the play mode set to ping-pong, it was still ping-pong after a restart, and the log said `the synth's play mode 1 read back`. Built with open-field's `tools/pack_build.py build3` against its main branch (base 32 era), checked with `pack_build.py check`, `stub_calls.py` and `publish_check.py` (no byte of the firmware in any file here).
 
 If the unit does not start with it, hold the **help** key while switching on: the unit then starts with no packs, and you can delete `user/pk/pattern mode.pack` in disk mode.
 
