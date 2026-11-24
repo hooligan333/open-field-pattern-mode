@@ -1,0 +1,20 @@
+{
+  "about": "pattern mode: the pattern sequencer keeps its play mode over a restart. OS 1.7.3 writes the pattern sequencer's play mode into its settings but never reads it back, so after every start the sequencer plays forward again. This pack stands at the entry of the function that reads those settings, lets it run, and then reads the play mode back itself. It needs no other pack and no pack needs it.",
+  "name": "pattern mode",
+  "version": 1,
+  "interface": 1,
+  "build": "pattern_mode",
+  "sources": [
+    "examples/pattern_mode/pattern_mode.s",
+    "examples/pattern_mode/pattern_mode.cpp",
+    "examples/pattern_mode/pattern_mode_table.s"
+  ],
+  "works_with": [],
+  "serves": [],
+  "exports": [],
+  "pictures": [],
+  "marks": [],
+  "named": true,
+  "sum": true,
+  "path": null
+}

@@ -1,0 +1,43 @@
+{
+ "schema": 2,
+ "id": "op1f-1.7.3-pattern-mode",
+ "device": "OP-1 Field",
+ "firmware_version": "1.7.3+0",
+ "cpu": "bf703",
+ "about": [
+  "The one place where the pack `pattern mode` changes OS 1.7.3+0 of the OP-1 Field. No byte of the firmware is in this file.",
+  "It has the form of profiles/op1f-1.7.3.json, which says what each field means. tools/table_build.py writes the pack's table, pattern_mode_table.s, from this file.",
+  "module_base and reserved_bytes are the room for our code, as the main profile names it: the pack is linked for the room behind the loader."
+ ],
+ "stock_sha256": "d134eb1ac7ad88e8370d988329cd5d7419f016005b1d269034f9cf7166fad0ec",
+ "stock_bytes": 2079016,
+ "module_base": "0x8d2e4234",
+ "reserved_bytes": 2097152,
+ "patches": [
+  {
+   "address": "0x8fc9d7d0",
+   "length": 8,
+   "sum": "0x97d52004",
+   "group": "pattern mode",
+   "name": "The entry of the function that reads the pattern sequencer's settings (swing, length, start and the notes) for the synth or the drum. It is called once for each, the first time the pattern sequencer's settings are asked for."
+  }
+ ],
+ "image": [],
+ "tables": [
+  {
+   "file": "examples/pattern_mode/pattern_mode_table.s",
+   "part": "pattern mode",
+   "symbol": "op1f_boot_table",
+   "entries": [
+    {
+     "address": "0x8fc9d7d0",
+     "form": "jump",
+     "target": "op1f_pm_load",
+     "room": "op1f_pm_load_room",
+     "copies": 8,
+     "does": "Lets the firmware's function read the settings (through a trampoline of eight bytes), then reads the play mode `pm` back from the same settings and sets it."
+    }
+   ]
+  }
+ ]
+}
